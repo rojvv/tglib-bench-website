@@ -1,0 +1,28 @@
+name: Update Results
+
+on: workflow_dispatch
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  update_results:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: denoland/setup-deno@v2
+
+      - run: |
+          deno -A update_results.ts
+
+          git add results.json
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update results" || exit 0
+          git pull --rebase
+          git push

@@ -1,0 +1,46 @@
+*::before, *, *::after {
+  box-sizing: border-box;
+  /* line-height: 1; */
+}
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  width: 100%;
+  max-width: 980px;
+  min-width: 780px;
+  overflow-x: auto;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  gap: 0.5rem;
+}
+
+a, a:visited {
+  color: rgb(0, 136, 204);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+footer {
+  font-size: 0.7rem;
+}
+
+footer span, footer a {
+  opacity: 0.5;
+}
+
+footer a:hover {
+  opacity: 1;
+}
