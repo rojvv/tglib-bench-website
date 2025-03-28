@@ -1,10 +1,6 @@
 import { join } from "jsr:@std/path/join";
 import { $ } from "jsr:@david/dax";
-
-const libraries = [
-  "00_mtkruto",
-  "02_mtcute",
-];
+import { libraries } from "./libraries.ts";
 
 // Get latest version of the repository
 await $`git clone --branch main https://github.com/rojvv/tglib-bench.git || true`;
@@ -12,7 +8,7 @@ await $`cd tglib-bench && git pull`;
 
 const results: Record<string, [number, [number, number[]]]> = {};
 
-for (const path of libraries) {
+for (const { slug: path } of libraries) {
   console.log(
     await $`cd tglib-bench && git log --all --grep='Update results' -n 1 --pretty=format:'%at' -- ${
       $.path(path)

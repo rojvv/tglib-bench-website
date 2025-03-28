@@ -15,4 +15,9 @@ export const libraries: Library[] = [
     name: "mtcute",
     link: "https://github.com/mtcute/mtcute",
   },
+  {
+    slug: "03_telethon",
+    name: "Telethon",
+    link: "https://github.com/LonamiWebs/telethon",
+  },
 ];
