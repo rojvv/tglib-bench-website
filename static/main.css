@@ -1,13 +1,9 @@
 *::before, *, *::after {
   box-sizing: border-box;
-  /* line-height: 1; */
 }
 
 body {
   font-family: Roboto, sans-serif;
-}
-
-body {
   width: 100%;
   max-width: 980px;
   min-width: 780px;
@@ -17,12 +13,17 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  font-size: 1rem;
 }
 
 main {
   display: grid;
   grid-template-columns: repeat(6, auto);
   gap: 0.5rem;
+}
+
+.idx {
+  user-select: none;
 }
 
 a, a:visited {

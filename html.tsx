@@ -5,20 +5,21 @@ export default (
   <html>
     <head>
       <title>tglib-bench</title>
-      <meta name="viewport" content="width=device-width" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="stylesheet" href="/fonts.css" />
+      <link rel="stylesheet" href="/normalize.css" />
       <link rel="stylesheet" href="/main.css" />
       {/* <script src="/lib/lottie-player.js" /> */}
       <script src="/main.js" />
     </head>
     <body>
-      <header>
+      <div>
         <div>
           Download and Upload Speed Comparison of Different Telegram Client
           Libraries
         </div>
         <div></div>
-      </header>
+      </div>
       <main>
         <div>
           <span style="opacity: 0">0</span>#
@@ -66,7 +67,7 @@ export default (
 function Idx({ idx }: { idx: number }) {
   if (idx) {
     return (
-      <div>
+      <div class="idx">
         <span style="opacity: 0">{idx < 10 && "0"}</span>
         {idx}.
       </div>
