@@ -11,6 +11,11 @@ export const libraries: Library[] = [
     link: "https://github.com/MTKruto/MTKruto",
   },
   {
+    slug: "01_fasttelethon",
+    name: "FastTelethon",
+    link: "https://gist.github.com/painor/7e74de80ae0c819d3e9abcf9989a8dd6",
+  },
+  {
     slug: "02_mtcute",
     name: "mtcute",
     link: "https://github.com/mtcute/mtcute",
