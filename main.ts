@@ -1,8 +1,8 @@
 import { render } from "preact-render-to-string";
 import { Application } from "@oak/oak/application";
 import { Router } from "@oak/oak/router";
-import { STATUS_CODE } from "@std/http/status";
 import html from "./html.tsx";
+import { Status } from "jsr:@oak/commons@1/status";
 
 const router = new Router();
 router.use(async (ctx, next) => {
@@ -11,7 +11,7 @@ router.use(async (ctx, next) => {
     return;
   }
   if (ctx.request.method != "GET") {
-    ctx.response.status = STATUS_CODE.MethodNotAllowed;
+    ctx.response.status = Status.MethodNotAllowed;
   } else {
     await next();
   }
@@ -25,10 +25,14 @@ const app = new Application();
 
 app.use(router.routes());
 
-app.use(async (context) => {
-  await context.send({
+app.use(async (ctx) => {
+  await ctx.send({
     root: `${Deno.cwd()}/static`,
   });
+  ctx.response.headers.set(
+    "cache-control",
+    "public, max-age=31536000, immutable",
+  );
 });
 
 app.listen({ port: 3000 });

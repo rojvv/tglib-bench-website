@@ -1,16 +1,18 @@
 /** @jsxImportSource preact */
 import { results } from "./results.ts";
 
+const id = `?1`;
+
 export default (
   <html>
     <head>
       <title>tglib-bench</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href="/fonts.css" />
-      <link rel="stylesheet" href="/normalize.css" />
-      <link rel="stylesheet" href="/main.css" />
+      <link rel="stylesheet" href={`/fonts.css${id}`} />
+      <link rel="stylesheet" href={`/normalize.css${id}`} />
+      <link rel="stylesheet" href={`/main.css${id}`} />
       {/* <script src="/lib/lottie-player.js" /> */}
-      <script src="/main.js" />
+      <script src={`/main.js${id}`} />
     </head>
     <body>
       <div>
