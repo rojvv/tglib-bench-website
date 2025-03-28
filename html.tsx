@@ -5,6 +5,7 @@ export default (
   <html>
     <head>
       <title>tglib-bench</title>
+      <meta name="viewport" content="width=device-width" />
       <link rel="stylesheet" href="/fonts.css" />
       <link rel="stylesheet" href="/main.css" />
       {/* <script src="/lib/lottie-player.js" /> */}
