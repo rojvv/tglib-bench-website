@@ -25,4 +25,9 @@ export const libraries: Library[] = [
     name: "Telethon",
     link: "https://github.com/LonamiWebs/telethon",
   },
+  {
+    slug: "04_tdlib",
+    name: "TDLib",
+    link: "https://github.com/tdlib/td",
+  },
 ];
