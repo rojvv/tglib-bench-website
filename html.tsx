@@ -1,7 +1,7 @@
 /** @jsxImportSource preact */
 import { results } from "./results.ts";
 
-const id = `?1`;
+const id = "?2";
 
 export default (
   <html>
@@ -23,8 +23,8 @@ export default (
         <div></div>
       </div>
       <main>
-        <div>
-          <span style="opacity: 0">0</span>#
+        <div class="number">
+          <span class="null">0</span>#
         </div>
         <div>Library</div>
         <div>Download</div>
@@ -37,9 +37,15 @@ export default (
             <div>
               <a href={v.library.link}>{v.library.name}</a>
             </div>
-            <div>{v.downloadMbps.toFixed(1)} MB/s</div>
-            <div>{v.uploadMbps.toFixed(1)} MB/s</div>
-            <div>{new Intl.DateTimeFormat().format(v.date)}</div>
+            <div class="number">
+              <span class="null">{v.downloadMbps < 10 && "0"}</span>
+              {v.downloadMbps.toFixed(1)} MB/s
+            </div>
+            <div class="number">
+              <span class="null">{v.uploadMbps < 10 && "0"}</span>
+              {v.uploadMbps.toFixed(1)} MB/s
+            </div>
+            <div class="number">{new Intl.DateTimeFormat().format(v.date)}</div>
             <div>
               <a
                 href={`https://github.com/rojvv/tglib-bench/tree/main/${v.library.slug}`}
@@ -71,8 +77,8 @@ export default (
 function Idx({ idx }: { idx: number }) {
   if (idx) {
     return (
-      <div class="idx">
-        <span style="opacity: 0">{idx < 10 && "0"}</span>
+      <div class="idx number">
+        <span class="null">{idx < 10 && "0"}</span>
         {idx}.
       </div>
     );

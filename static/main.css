@@ -45,3 +45,13 @@ footer span, footer a {
 footer a:hover {
   opacity: 1;
 }
+
+.number {
+  font-variant-numeric: tabular-nums;
+}
+
+.null {
+  opacity: 0;
+  user-select: none;
+  pointer-events: none;
+}
