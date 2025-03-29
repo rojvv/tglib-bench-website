@@ -56,6 +56,8 @@ export default (
             Each library was given a 2 GB file to download, and then re-upload.
             All benchmarks were run inside GitHub-hosted runners located in the
             United States, and connected to Telegram’s DC1 (United States).
+            Machine specifications: Linux x86-64 (Ubuntu 24.04), 4-core CPU, 16
+            GB memory, 14 GB SSD storage.{" "}
           </span>
           <a href="https://github.com/rojvv/tglib-bench/actions/workflows/bench.yml">
             View runs.
