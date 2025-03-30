@@ -30,4 +30,9 @@ export const libraries: Library[] = [
     name: "TDLib",
     link: "https://github.com/tdlib/td",
   },
+  {
+    slug: "05_wtelegramclient",
+    name: "WTelegramClient",
+    link: "https://github.com/wiz0u/WTelegramClient",
+  },
 ];
