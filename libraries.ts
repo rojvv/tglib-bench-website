@@ -35,4 +35,14 @@ export const libraries: Library[] = [
     name: "WTelegramClient",
     link: "https://github.com/wiz0u/WTelegramClient",
   },
+  {
+    slug: "06_madelineproto",
+    name: "MadelineProto",
+    link: "https://github.com/danog/MadelineProto",
+  },
+  {
+    slug: "07_pyrogrammod",
+    name: "PyrogramMod",
+    link: "https://github.com/PyrogramMod/PyrogramMod",
+  },
 ];
