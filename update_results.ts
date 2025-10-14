@@ -24,7 +24,7 @@ for (const { slug: path } of libraries) {
 
   if (!timestamp) {
     console.error("Failed to get a valid timestamp:", path);
-    Deno.exit(1);
+    continue;
   }
   results[path] = [
     timestamp,
