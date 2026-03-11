@@ -6,10 +6,6 @@ import { Status } from "jsr:@oak/commons@1/status";
 
 const router = new Router();
 router.use(async (ctx, next) => {
-  if (ctx.request.url.hostname.endsWith("deno.dev")) {
-    ctx.response.redirect("https://libspeed.telegram.tools");
-    return;
-  }
   if (ctx.request.method != "GET") {
     ctx.response.status = Status.MethodNotAllowed;
   } else {
