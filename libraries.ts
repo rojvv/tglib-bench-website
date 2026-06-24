@@ -45,4 +45,9 @@ export const libraries: Library[] = [
     name: "PyrogramMod",
     link: "https://github.com/PyrogramMod/PyrogramMod",
   },
+  {
+    slug: "08_gogram",
+    name: "gogram",
+    link: "https://github.com/AmarnathCJD/gogram",
+  }
 ];
