@@ -49,5 +49,10 @@ export const libraries: Library[] = [
     slug: "08_gogram",
     name: "gogram",
     link: "https://github.com/AmarnathCJD/gogram",
-  }
+  },
+  {
+    slug: "09_mtgo",
+    name: "mtgo",
+    link: "https://github.com/mtgo-labs/mtgo",
+  },
 ];
