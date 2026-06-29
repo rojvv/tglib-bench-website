@@ -3,6 +3,7 @@ import { Application } from "@oak/oak/application";
 import { Router } from "@oak/oak/router";
 import html from "./html.tsx";
 import { Status } from "jsr:@oak/commons@1/status";
+import { results } from "./results.ts";
 
 const router = new Router();
 router.use(async (ctx, next) => {
@@ -17,8 +18,8 @@ router.get("/", (ctx) => {
   ctx.response.body = render(html);
 });
 
-router.get("/results.json", async (ctx) => {
-  ctx.response.body = await Deno.readTextFile("results.json");
+router.get("/results.json", (ctx) => {
+  ctx.response.body = JSON.stringify(results);
 });
 
 const app = new Application();
