@@ -1,7 +1,7 @@
 /** @jsxImportSource preact */
 import { results } from "./results.ts";
 
-const id = "?2";
+const id = "?3";
 
 export default (
   <html>
@@ -23,38 +23,48 @@ export default (
         <div></div>
       </div>
       <main>
-        <div class="number">
-          <span class="null">0</span>#
-        </div>
-        <div>Library</div>
-        <div>Download</div>
-        <div>Upload</div>
-        <div>Date</div>
-        <div></div>
-        {results.map((v, i) => (
-          <>
-            <Idx idx={i + 1} />
-            <div>
-              <a href={v.library.link}>{v.library.name}</a>
-            </div>
-            <div class="number">
-              <span class="null">{v.downloadMbps < 10 && "0"}</span>
-              {v.downloadMbps.toFixed(1)} MB/s
-            </div>
-            <div class="number">
-              <span class="null">{v.uploadMbps < 10 && "0"}</span>
-              {v.uploadMbps.toFixed(1)} MB/s
-            </div>
-            <div class="number">{new Intl.DateTimeFormat().format(v.date)}</div>
-            <div>
-              <a
-                href={`https://github.com/rojvv/tglib-bench/tree/main/${v.library.slug}`}
-              >
-                View Source
-              </a>
-            </div>
-          </>
-        ))}
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" class="number">
+                <span class="null">0</span>#
+              </th>
+              <th scope="col">Library</th>
+              <th scope="col">Download</th>
+              <th scope="col">Upload</th>
+              <th scope="col">Date</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {results.map((v, i) => (
+              <tr>
+                <Idx idx={i + 1} />
+                <td>
+                  <a href={v.library.link}>{v.library.name}</a>
+                </td>
+                <td class="number">
+                  <span class="null">{v.downloadMbps < 10 && "0"}</span>
+                  {v.downloadMbps.toFixed(1)} MB/s
+                </td>
+                <td class="number">
+                  <span class="null">{v.uploadMbps < 10 && "0"}</span>
+                  {v.uploadMbps.toFixed(1)} MB/s
+                </td>
+                <td class="number">
+                  {new Intl.DateTimeFormat().format(v.date)}
+                </td>
+                <td>
+                  <a
+                    href={`https://github.com/rojvv/tglib-bench/tree/main/${v.library.slug}`}
+                  >
+                    View Source
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </main>
       <footer>
         <div>
@@ -77,14 +87,14 @@ export default (
 function Idx({ idx }: { idx: number }) {
   if (idx) {
     return (
-      <div class="idx number">
+      <td class="idx number">
         <span class="null">{idx < 10 && "0"}</span>
         {idx}.
-      </div>
+      </td>
     );
   } else {
     return (
-      <div
+      <td
         dangerouslySetInnerHTML={{
           __html: `
 <lottie-player

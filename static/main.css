@@ -16,10 +16,25 @@ body {
   font-size: 1rem;
 }
 
-main {
-  display: grid;
-  grid-template-columns: repeat(6, auto);
-  gap: 0.5rem;
+main, table {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  font-weight: 400;
+  text-align: left;
+}
+
+th, td {
+  padding: 0 0.5rem 0.5rem 0;
+}
+
+th:last-child, td:last-child {
+  padding-right: 0;
 }
 
 .idx {
