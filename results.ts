@@ -3,7 +3,7 @@ import { libraries, Library } from "./libraries.ts";
 const resultsUntouched: Record<string, [number, [number, number[]]]> = JSON
   .parse(Deno.readTextFileSync("results.json"));
 
-interface Result {
+export interface Result {
   library: Library;
   date: Date;
   downloadMbps: number;

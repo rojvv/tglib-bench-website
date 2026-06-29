@@ -17,6 +17,10 @@ router.get("/", (ctx) => {
   ctx.response.body = render(html);
 });
 
+router.get("/results.json", async (ctx) => {
+  ctx.response.body = await Deno.readTextFile("results.json");
+});
+
 const app = new Application();
 
 app.use(router.routes());

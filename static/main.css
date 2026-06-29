@@ -1,4 +1,6 @@
-*::before, *, *::after {
+*::before,
+*,
+*::after {
   box-sizing: border-box;
 }
 
@@ -16,7 +18,8 @@ body {
   font-size: 1rem;
 }
 
-main, table {
+main,
+table {
   width: 100%;
 }
 
@@ -29,11 +32,13 @@ th {
   text-align: left;
 }
 
-th, td {
+th,
+td {
   padding: 0 0.5rem 0.5rem 0;
 }
 
-th:last-child, td:last-child {
+th:last-child,
+td:last-child {
   padding-right: 0;
 }
 
@@ -41,7 +46,8 @@ th:last-child, td:last-child {
   user-select: none;
 }
 
-a, a:visited {
+a,
+a:visited {
   color: rgb(0, 136, 204);
 }
 
@@ -53,7 +59,8 @@ footer {
   font-size: 0.7rem;
 }
 
-footer span, footer a {
+footer span,
+footer a {
   opacity: 0.5;
 }
 
