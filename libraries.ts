@@ -55,4 +55,9 @@ export const libraries: Library[] = [
     name: "mtgo",
     link: "https://github.com/mtgo-labs/mtgo",
   },
+  {
+    slug: "10_gotd",
+    name: "gotd",
+    link: "https://github.com/gotd/td",
+  },
 ];
