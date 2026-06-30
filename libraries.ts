@@ -60,4 +60,9 @@ export const libraries: Library[] = [
     name: "gotd",
     link: "https://github.com/gotd/td",
   },
+  {
+    slug: "11_teleproto",
+    name: "teleproto",
+    link: "https://github.com/sanyok12345/teleproto",
+  },
 ];
