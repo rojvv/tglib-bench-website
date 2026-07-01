@@ -65,4 +65,9 @@ export const libraries: Library[] = [
     name: "teleproto",
     link: "https://github.com/sanyok12345/teleproto",
   },
+  {
+    slug: "12_kurigram",
+    name: "Kurigram",
+    link: "https://github.com/KurimuzonAkuma/kurigram",
+  },
 ];
