@@ -44,12 +44,12 @@ export default (
                   <a href={v.library.link}>{v.library.name}</a>
                 </td>
                 <td class="number">
-                  <span class="null">{v.downloadMbps < 10 && "0"}</span>
-                  {v.downloadMbps.toFixed(1)} MB/s
+                  <span class="null">{v.downloadMbs < 10 && "0"}</span>
+                  {v.downloadMbs.toFixed(1)} MB/s
                 </td>
                 <td class="number">
-                  <span class="null">{v.uploadMbps < 10 && "0"}</span>
-                  {v.uploadMbps.toFixed(1)} MB/s
+                  <span class="null">{v.uploadMbs < 10 && "0"}</span>
+                  {v.uploadMbs.toFixed(1)} MB/s
                 </td>
                 <td class="number">
                   {new Intl.DateTimeFormat().format(v.date)}
