@@ -6,8 +6,8 @@ const resultsUntouched: Record<string, [number, [number, number[]]]> = JSON
 export interface Result {
   library: Library;
   date: Date;
-  downloadMbps: number;
-  uploadMbps: number;
+  downloadMbs: number;
+  uploadMbs: number;
 }
 
 export let results = new Array<Result>();
@@ -18,7 +18,7 @@ for (const [slug, results_] of Object.entries(resultsUntouched)) {
     continue;
   }
   const date = new Date(results_[0] * 1_000);
-  const fileSize = results_[1][0] / 1_024 / 1_024;
+  const fileSize = results_[1][0] / 1_000 / 1_000;
   const timestamps = results_[1][1];
   if (!fileSize || !date.getTime() || timestamps.length != 4) {
     continue;
@@ -26,11 +26,11 @@ for (const [slug, results_] of Object.entries(resultsUntouched)) {
 
   const [downloadStarted, downloadEnded, uploadStarted, uploadEnded] =
     timestamps;
-  const downloadMbps = fileSize / (downloadEnded - downloadStarted);
-  const uploadMbps = fileSize / (uploadEnded - uploadStarted);
-  results.push({ library, date, downloadMbps, uploadMbps });
+  const downloadMbs = fileSize / (downloadEnded - downloadStarted);
+  const uploadMbs = fileSize / (uploadEnded - uploadStarted);
+  results.push({ library, date, downloadMbs, uploadMbs });
 }
 
 results = results.sort((a, b) =>
-  (b.downloadMbps + b.uploadMbps) - (a.downloadMbps + a.uploadMbps)
+  (b.downloadMbs + b.uploadMbs) - (a.downloadMbs + a.uploadMbs)
 );
