@@ -65,4 +65,9 @@ export const libraries: Library[] = [
     name: "wzgram",
     link: "https://github.com/rjriajul/wzgram",
   },
+  {
+    slug: "12_teleproto",
+    name: "teleproto",
+    link: "https://github.com/sanyok12345/teleproto",
+  },
 ];
