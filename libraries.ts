@@ -70,4 +70,9 @@ export const libraries: Library[] = [
     name: "teleproto",
     link: "https://github.com/sanyok12345/teleproto",
   },
+  {
+    slug: "13_mtflute",
+    name: "mtflute",
+    link: "https://github.com/AmarnathCJD/mtflute",
+  },
 ];
