@@ -8,7 +8,6 @@ export default (
     <head>
       <title>tglib-bench</title>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="stylesheet" href={`/fonts.css${id}`} />
       <link rel="stylesheet" href={`/normalize.css${id}`} />
       <link rel="stylesheet" href={`/main.css${id}`} />
       {/* <script src="/lib/lottie-player.js" /> */}
@@ -31,7 +30,6 @@ export default (
               Download and Upload Speed Comparison of Different Telegram Client
               Libraries
             </div>
-            <div></div>
           </div>
           <main>
             <table>
