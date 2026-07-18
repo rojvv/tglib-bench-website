@@ -71,9 +71,3 @@ footer a:hover {
 .number {
   font-variant-numeric: tabular-nums;
 }
-
-.null {
-  opacity: 0;
-  user-select: none;
-  pointer-events: none;
-}

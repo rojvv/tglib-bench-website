@@ -38,7 +38,7 @@ export default (
               <thead>
                 <tr>
                   <th scope="col" class="number">
-                    <span class="null">0</span>#
+                    #
                   </th>
                   <th scope="col">Library</th>
                   <th scope="col">Download</th>
@@ -55,11 +55,9 @@ export default (
                       <a href={v.library.link}>{v.library.name}</a>
                     </td>
                     <td class="number">
-                      <span class="null">{v.downloadMbs < 10 && "0"}</span>
                       {v.downloadMbs.toFixed(1)} MB/s
                     </td>
                     <td class="number">
-                      <span class="null">{v.uploadMbs < 10 && "0"}</span>
                       {v.uploadMbs.toFixed(1)} MB/s
                     </td>
                     <td class="number">
@@ -101,7 +99,6 @@ function Idx({ idx }: { idx: number }) {
   if (idx) {
     return (
       <td class="idx number">
-        <span class="null">{idx < 10 && "0"}</span>
         {idx}.
       </td>
     );
