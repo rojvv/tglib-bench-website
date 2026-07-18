@@ -35,7 +35,7 @@ export default (
             <table>
               <thead>
                 <tr>
-                  <th scope="col" class="number">
+                  <th scope="col" class="number offset">
                     #
                   </th>
                   <th scope="col">Library</th>
@@ -52,10 +52,10 @@ export default (
                     <td>
                       <a href={v.library.link}>{v.library.name}</a>
                     </td>
-                    <td class="number">
+                    <td class={`number ${v.downloadMbs <= 10 ? 'offset' : ''}`}>
                       {v.downloadMbs.toFixed(1)} MB/s
                     </td>
-                    <td class="number">
+                    <td class={`number ${v.uploadMbs <= 10 ? 'offset' : ''}`}>
                       {v.uploadMbs.toFixed(1)} MB/s
                     </td>
                     <td class="number">
@@ -96,7 +96,7 @@ export default (
 function Idx({ idx }: { idx: number }) {
   if (idx) {
     return (
-      <td class="idx number">
+      <td class={`idx number ${idx < 10 ? 'offset' : ''}`}>
         {idx}.
       </td>
     );

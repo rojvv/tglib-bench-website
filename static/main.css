@@ -49,6 +49,11 @@ td:last-child {
   user-select: none;
 }
 
+.offset::before {
+  content: "0";
+  opacity: 0;
+}
+
 a,
 a:visited {
   color: rgb(0, 136, 204);
