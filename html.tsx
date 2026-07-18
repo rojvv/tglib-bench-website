@@ -13,9 +13,9 @@ export default (
       <link rel="stylesheet" href={`/main.css${id}`} />
       {/* <script src="/lib/lottie-player.js" /> */}
       <script src={`/main.js${id}`} />
-      <!--site_verification property must be present, but could be empty (no IVBot-side verification for now?)-->
+      {/*<!--site_verification property must be present, but could be empty (no IVBot-side verification for now?)-->*/}
       <meta property="tg:site_verification" content="g7j8/rPFXfhyrq5q0QQV7EsYWv4=">
-      <!--published_time property must be present, but you could leave content empty if no $published_date is wanted-->
+      {/*<!--published_time property must be present, but you could leave content empty if no $published_date is wanted-->*/}
       <meta property="article:published_time" content="">
       <meta property="article:author" content="https://t.me/libspeedbot">
       <meta property="telegram:channel" content="@tglibs">
