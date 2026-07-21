@@ -75,4 +75,9 @@ export const libraries: Library[] = [
     name: "mtflute",
     link: "https://github.com/AmarnathCJD/mtflute",
   },
+  {
+    slug: "14_laragram",
+    name: "LaraGram",
+    link: "https://github.com/laraXgram/MTProto",
+  },
 ];
