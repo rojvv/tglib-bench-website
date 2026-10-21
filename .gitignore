@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+dist/
+worker-configuration.d.ts
+tglib-bench/
+.dev.vars*
+.env*
+.DS_Store

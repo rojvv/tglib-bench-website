@@ -1,25 +1,34 @@
-import { join } from "jsr:@std/path/join";
-import { $ } from "jsr:@david/dax";
+import { execFileSync } from "node:child_process";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { libraries } from "./libraries.ts";
+import type { RawResults } from "./results.ts";
 
-// Get latest version of the repository
-await $`git clone --branch main https://github.com/rojvv/tglib-bench.git || true`;
-await $`cd tglib-bench && git pull`;
+const root = fileURLToPath(new URL(".", import.meta.url));
+const repository = join(root, "tglib-bench");
 
-const results: Record<string, [number, [number, number[]]]> = {};
+// Keep the full history so each library's latest result commit can be found.
+if (!existsSync(repository)) {
+  execFileSync("git", [
+    "clone", "--branch", "main", "--single-branch",
+    "https://github.com/rojvv/tglib-bench.git", repository,
+  ], { stdio: "inherit" });
+} else {
+  execFileSync("git", ["pull", "--ff-only", "origin", "main"], {
+    cwd: repository,
+    stdio: "inherit",
+  });
+}
+
+const results: RawResults = {};
 
 for (const { slug: path } of libraries) {
-  console.log(
-    await $`cd tglib-bench && git log --all --grep='Update results' -n 1 --pretty=format:'%at' -- ${
-      $.path(path)
-    }`
-      .text(),
-  );
   const timestamp = Number(
-    await $`cd tglib-bench && git log --all --grep='Update results' -n 1 --pretty=format:'%at' -- ${
-      $.path(path)
-    }`
-      .text(),
+    execFileSync("git", [
+      "log", "--all", "--grep=Update results", "-n", "1",
+      "--pretty=format:%at", "--", path,
+    ], { cwd: repository, encoding: "utf8" }).trim(),
   );
 
   if (!timestamp) {
@@ -29,9 +38,9 @@ for (const { slug: path } of libraries) {
   results[path] = [
     timestamp,
     JSON.parse(
-      Deno.readTextFileSync(join("tglib-bench", path, "results.json")),
+      readFileSync(join(repository, path, "results.json"), "utf8"),
     ),
   ];
 }
 
-Deno.writeTextFileSync("results.json", JSON.stringify(results));
+writeFileSync(join(root, "results.json"), JSON.stringify(results));

@@ -1,7 +1,10 @@
-import { libraries, Library } from "./libraries.ts";
+import { libraries, type Library } from "./libraries.ts";
+import rawResults from "./results.json" with { type: "json" };
 
-const resultsUntouched: Record<string, [number, [number, number[]]]> = JSON
-  .parse(Deno.readTextFileSync("results.json"));
+export type RawResults = Record<string, [number, [number, number[], ...unknown[]]]>;
+
+// JSON imports infer arrays, while the benchmark format uses fixed tuples.
+const resultsUntouched = rawResults as unknown as RawResults;
 
 export interface Result {
   library: Library;

@@ -1,39 +1,41 @@
 import { render } from "preact-render-to-string";
-import { Application } from "@oak/oak/application";
-import { Router } from "@oak/oak/router";
 import html from "./html.tsx";
-import { Status } from "jsr:@oak/commons@1/status";
 import { results } from "./results.ts";
 
-const router = new Router();
-router.use(async (ctx, next) => {
-  if (ctx.request.method != "GET") {
-    ctx.response.status = Status.MethodNotAllowed;
-  } else {
-    await next();
-  }
-});
+const page = render(html);
 
-router.get("/", (ctx) => {
-  ctx.response.body = render(html);
-});
+export default {
+  async fetch(request, env) {
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      return new Response("Method Not Allowed", {
+        status: 405,
+        headers: { Allow: "GET, HEAD" },
+      });
+    }
 
-router.get("/results.json", (ctx) => {
-  ctx.response.body = JSON.stringify(results);
-});
+    const { pathname } = new URL(request.url);
+    const head = request.method === "HEAD";
 
-const app = new Application();
+    if (pathname === "/") {
+      return new Response(head ? null : page, {
+        headers: { "Content-Type": "text/html; charset=utf-8" },
+      });
+    }
 
-app.use(router.routes());
+    if (pathname === "/results.json") {
+      return new Response(head ? null : JSON.stringify(results), {
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+      });
+    }
 
-app.use(async (ctx) => {
-  await ctx.send({
-    root: `${Deno.cwd()}/static`,
-  });
-  ctx.response.headers.set(
-    "cache-control",
-    "public, max-age=31536000, immutable",
-  );
-});
-
-app.listen({ port: 3000 });
+    const asset = await env.ASSETS.fetch(request);
+    const response = new Response(asset.body, asset);
+    if (response.ok) {
+      response.headers.set(
+        "Cache-Control",
+        "public, max-age=31536000, immutable",
+      );
+    }
+    return response;
+  },
+} satisfies ExportedHandler<Env>;

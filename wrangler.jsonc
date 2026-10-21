@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tglib-bench-website",
+  "main": "main.ts",
+  "compatibility_date": "2026-10-21",
+  "compatibility_flags": ["no_nodejs_compat", "no_nodejs_compat_v2"],
+  "assets": {
+    "directory": "./static",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+  "dev": {
+    "port": 3000
+  }
+}
