@@ -80,4 +80,9 @@ export const libraries: Library[] = [
     name: "LaraGram",
     link: "https://github.com/laraXgram/MTProto",
   },
+  {
+    slug: "15_miniproto",
+    name: "miniproto",
+    link: "https://github.com/EDM115/miniproto",
+  },
 ];
